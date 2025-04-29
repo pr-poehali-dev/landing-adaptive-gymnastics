@@ -6,7 +6,7 @@ export default {
 		"./pages/**/*.{ts,tsx}",
 		"./components/**/*.{ts,tsx}",
 		"./app/**/*.{ts,tsx}",
-		"./src/**/*.{ts,tsx}",
+		"./src/**/*.{ts,tsx}"
 	],
 	prefix: "",
 	theme: {
@@ -61,7 +61,15 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				// Центр Жизни цвета
+				'life-orange': '#FF4500',
+				'life-yellow': '#FFEB3B',
+				'life-purple': '#8B5CF6',
+				'life-blue': '#1A73E8',
+				'life-gradient-start': '#FFEB3B',
+				'life-gradient-middle': '#FF4500',
+				'life-gradient-end': '#8B5CF6',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -84,11 +92,25 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'pulse-light': {
+					'0%, 100%': { opacity: '1' },
+					'50%': { opacity: '0.8' },
+				},
+				'float': {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-10px)' },
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'pulse-light': 'pulse-light 2s ease-in-out infinite',
+				'float': 'float 6s ease-in-out infinite',
+			},
+			backgroundImage: {
+				'life-gradient': 'linear-gradient(to bottom right, var(--life-gradient-start), var(--life-gradient-middle), var(--life-gradient-end))',
+				'hero-pattern': 'radial-gradient(circle at 50% 50%, rgba(255, 69, 0, 0.1) 0%, rgba(255, 255, 255, 0) 70%)',
 			}
 		}
 	},
