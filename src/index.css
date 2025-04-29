@@ -110,7 +110,28 @@
 }
 
 .section-title {
-  @apply text-3xl md:text-4xl font-bold mb-8 text-center gradient-text;
+  @apply text-3xl md:text-4xl font-bold mb-12 text-center gradient-text relative;
+}
+
+.section-title::after {
+  content: '';
+  @apply absolute bottom-[-15px] left-1/2 transform -translate-x-1/2 h-1 w-24 bg-gradient-to-r from-life-yellow via-life-orange to-life-purple rounded-full;
+}
+
+.card-highlight {
+  @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-life-orange/30;
+}
+
+.section-bg-alt {
+  @apply bg-gray-50;
+}
+
+.icon-feature {
+  @apply text-life-orange flex-shrink-0 transition-transform duration-300 group-hover:scale-110;
+}
+
+.feature-item {
+  @apply flex items-start gap-4 group;
 }
 
 @keyframes breathe {
@@ -124,4 +145,11 @@
 
 .animate-breathe {
   animation: breathe 8s ease-in-out infinite;
+}
+
+.section-divider {
+  height: 4px;
+  background: linear-gradient(to right, var(--life-gradient-start), var(--life-gradient-middle), var(--life-gradient-end));
+  max-width: 200px;
+  @apply mx-auto rounded-full my-8;
 }

@@ -7,11 +7,31 @@ import { Menu, X } from "lucide-react";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("hero");
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
+      
+      // Определение активного раздела для подсветки в меню
+      const sections = ["about", "benefits", "programs", "testimonials", "contact"];
+      const scrollPosition = window.scrollY + 300;
+      
+      for (const sectionId of sections) {
+        const element = document.getElementById(sectionId);
+        if (element && 
+            scrollPosition >= element.offsetTop && 
+            scrollPosition < element.offsetTop + element.offsetHeight) {
+          setActiveSection(sectionId);
+          return;
+        }
+      }
+      
+      if (scrollPosition < 300) {
+        setActiveSection("hero");
+      }
     };
+    
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -25,6 +45,8 @@ const Header = () => {
       setIsMenuOpen(false);
     }
   };
+
+  const isActive = (sectionId: string) => activeSection === sectionId;
 
   return (
     <header
@@ -48,31 +70,59 @@ const Header = () => {
         <nav className="hidden md:flex items-center gap-6">
           <button 
             onClick={() => scrollToSection("about")} 
-            className="text-gray-700 hover:text-life-orange transition-colors"
+            className={`transition-colors relative ${
+              isActive("about") 
+                ? "text-life-orange font-medium" 
+                : "text-gray-700 hover:text-life-orange/80"
+            }`}
           >
             О методике
+            {isActive("about") && (
+              <span className="absolute bottom-[-5px] left-0 w-full h-0.5 bg-life-orange"></span>
+            )}
           </button>
           <button 
             onClick={() => scrollToSection("benefits")} 
-            className="text-gray-700 hover:text-life-orange transition-colors"
+            className={`transition-colors relative ${
+              isActive("benefits") 
+                ? "text-life-orange font-medium" 
+                : "text-gray-700 hover:text-life-orange/80"
+            }`}
           >
             Преимущества
+            {isActive("benefits") && (
+              <span className="absolute bottom-[-5px] left-0 w-full h-0.5 bg-life-orange"></span>
+            )}
           </button>
           <button 
             onClick={() => scrollToSection("programs")} 
-            className="text-gray-700 hover:text-life-orange transition-colors"
+            className={`transition-colors relative ${
+              isActive("programs") 
+                ? "text-life-orange font-medium" 
+                : "text-gray-700 hover:text-life-orange/80"
+            }`}
           >
             Программы
+            {isActive("programs") && (
+              <span className="absolute bottom-[-5px] left-0 w-full h-0.5 bg-life-orange"></span>
+            )}
           </button>
           <button 
             onClick={() => scrollToSection("testimonials")} 
-            className="text-gray-700 hover:text-life-orange transition-colors"
+            className={`transition-colors relative ${
+              isActive("testimonials") 
+                ? "text-life-orange font-medium" 
+                : "text-gray-700 hover:text-life-orange/80"
+            }`}
           >
             Отзывы
+            {isActive("testimonials") && (
+              <span className="absolute bottom-[-5px] left-0 w-full h-0.5 bg-life-orange"></span>
+            )}
           </button>
           <Button 
             onClick={() => scrollToSection("contact")} 
-            className="btn-gradient"
+            className={`btn-gradient ${isActive("contact") ? "ring-2 ring-life-purple" : ""}`}
           >
             Записаться
           </Button>
@@ -94,25 +144,25 @@ const Header = () => {
           <div className="container mx-auto px-4 py-4 flex flex-col gap-4">
             <button 
               onClick={() => scrollToSection("about")} 
-              className="text-gray-700 hover:text-life-orange py-2 transition-colors"
+              className={`py-2 transition-colors ${isActive("about") ? "text-life-orange font-medium" : "text-gray-700"}`}
             >
               О методике
             </button>
             <button 
               onClick={() => scrollToSection("benefits")} 
-              className="text-gray-700 hover:text-life-orange py-2 transition-colors"
+              className={`py-2 transition-colors ${isActive("benefits") ? "text-life-orange font-medium" : "text-gray-700"}`}
             >
               Преимущества
             </button>
             <button 
               onClick={() => scrollToSection("programs")} 
-              className="text-gray-700 hover:text-life-orange py-2 transition-colors"
+              className={`py-2 transition-colors ${isActive("programs") ? "text-life-orange font-medium" : "text-gray-700"}`}
             >
               Программы
             </button>
             <button 
               onClick={() => scrollToSection("testimonials")} 
-              className="text-gray-700 hover:text-life-orange py-2 transition-colors"
+              className={`py-2 transition-colors ${isActive("testimonials") ? "text-life-orange font-medium" : "text-gray-700"}`}
             >
               Отзывы
             </button>

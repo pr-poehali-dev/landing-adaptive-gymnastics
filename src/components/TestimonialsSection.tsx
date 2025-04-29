@@ -4,7 +4,8 @@ import { Card } from "@/components/ui/card";
 import { 
   ChevronLeft, 
   ChevronRight, 
-  Star 
+  Star, 
+  User
 } from "lucide-react";
 
 interface Testimonial {
@@ -86,7 +87,7 @@ const TestimonialsSection = () => {
                   key={testimonial.id} 
                   className="w-full md:w-1/3 flex-shrink-0 px-3"
                 >
-                  <Card className="h-full p-6 hover:shadow-lg transition-shadow">
+                  <Card className="h-full p-6 card-highlight border-2">
                     <div className="flex items-center mb-4">
                       <div className="flex text-yellow-400">
                         <Star className="fill-current" size={20} />
@@ -97,9 +98,12 @@ const TestimonialsSection = () => {
                       </div>
                     </div>
                     
-                    <p className="mb-4 italic">"{testimonial.text}"</p>
+                    <p className="mb-6 italic leading-relaxed">"{testimonial.text}"</p>
                     
-                    <div className="mt-auto">
+                    <div className="mt-auto flex items-center">
+                      <div className="bg-gray-100 p-2 rounded-full mr-3">
+                        <User className="text-gray-500 h-5 w-5" />
+                      </div>
                       <p className="font-bold">{testimonial.name}, {testimonial.age} лет</p>
                     </div>
                   </Card>
@@ -110,7 +114,7 @@ const TestimonialsSection = () => {
           
           <button 
             onClick={prevSlide}
-            className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md hover:bg-gray-100 transition-colors"
+            className="absolute top-1/2 left-0 transform -translate-y-1/2 bg-white p-3 rounded-full shadow-md hover:bg-gray-100 transition-colors border border-gray-200"
             aria-label="Предыдущий отзыв"
           >
             <ChevronLeft className="text-life-orange" />
@@ -118,47 +122,49 @@ const TestimonialsSection = () => {
           
           <button 
             onClick={nextSlide}
-            className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md hover:bg-gray-100 transition-colors"
+            className="absolute top-1/2 right-0 transform -translate-y-1/2 bg-white p-3 rounded-full shadow-md hover:bg-gray-100 transition-colors border border-gray-200"
             aria-label="Следующий отзыв"
           >
             <ChevronRight className="text-life-orange" />
           </button>
         </div>
         
-        <div className="mt-12 md:mt-16 bg-gray-50 p-8 rounded-lg">
-          <h3 className="text-2xl font-bold mb-6 text-center gradient-text">
+        <div className="section-divider mt-16"></div>
+        
+        <div className="mt-12 md:mt-16">
+          <h3 className="text-2xl font-bold mb-10 text-center gradient-text">
             Для кого подходят наши тренировки
           </h3>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            <div className="bg-white p-4 rounded shadow-sm">
-              <p className="font-bold mb-2 text-life-orange">Военным</p>
-              <p>Мобилизация скрытых ресурсов организма при реабилитации</p>
+            <div className="bg-gray-50 p-5 rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
+              <p className="font-bold mb-3 text-life-orange text-lg">Военным</p>
+              <p className="leading-relaxed">Мобилизация скрытых ресурсов организма при реабилитации</p>
             </div>
             
-            <div className="bg-white p-4 rounded shadow-sm">
-              <p className="font-bold mb-2 text-life-orange">Спортсменам</p>
-              <p>Быстрое восстановление после травм, ушибов, растяжений</p>
+            <div className="bg-gray-50 p-5 rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
+              <p className="font-bold mb-3 text-life-orange text-lg">Спортсменам</p>
+              <p className="leading-relaxed">Быстрое восстановление после травм, ушибов, растяжений</p>
             </div>
             
-            <div className="bg-white p-4 rounded shadow-sm">
-              <p className="font-bold mb-2 text-life-orange">Водителям</p>
-              <p>Исправление тазовой деформации и шейно-воротниковой зоны</p>
+            <div className="bg-gray-50 p-5 rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
+              <p className="font-bold mb-3 text-life-orange text-lg">Водителям</p>
+              <p className="leading-relaxed">Исправление тазовой деформации и шейно-воротниковой зоны</p>
             </div>
             
-            <div className="bg-white p-4 rounded shadow-sm">
-              <p className="font-bold mb-2 text-life-orange">Офисным работникам</p>
-              <p>При нервных истощениях, стрессах и депрессиях</p>
+            <div className="bg-gray-50 p-5 rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
+              <p className="font-bold mb-3 text-life-orange text-lg">Офисным работникам</p>
+              <p className="leading-relaxed">При нервных истощениях, стрессах и депрессиях</p>
             </div>
             
-            <div className="bg-white p-4 rounded shadow-sm">
-              <p className="font-bold mb-2 text-life-orange">Детям и подросткам</p>
-              <p>Исправление осанки и профилактика сколиоза</p>
+            <div className="bg-gray-50 p-5 rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
+              <p className="font-bold mb-3 text-life-orange text-lg">Детям и подросткам</p>
+              <p className="leading-relaxed">Исправление осанки и профилактика сколиоза</p>
             </div>
             
-            <div className="bg-white p-4 rounded shadow-sm">
-              <p className="font-bold mb-2 text-life-orange">Пожилым людям</p>
-              <p>Сохранение подвижности и возвращение активности суставам</p>
+            <div className="bg-gray-50 p-5 rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
+              <p className="font-bold mb-3 text-life-orange text-lg">Пожилым людям</p>
+              <p className="leading-relaxed">Сохранение подвижности и возвращение активности суставам</p>
             </div>
           </div>
         </div>

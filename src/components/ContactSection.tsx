@@ -46,14 +46,14 @@ const ContactSection = () => {
   };
   
   return (
-    <section id="contact" className="section-padding bg-gray-50">
+    <section id="contact" className="section-padding section-bg-alt border-t border-gray-200">
       <div className="container mx-auto px-4">
         <h2 className="section-title">Свяжитесь с нами</h2>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <div>
-            <h3 className="text-2xl font-bold mb-6">Запишитесь на занятие</h3>
-            <p className="mb-8 text-lg">
+          <div className="bg-white p-8 rounded-lg shadow-sm border border-gray-200">
+            <h3 className="text-2xl font-bold mb-6 gradient-text">Запишитесь на занятие</h3>
+            <p className="mb-8 text-lg leading-relaxed">
               Заполните форму, и мы свяжемся с вами в ближайшее время для подтверждения записи 
               и ответим на все ваши вопросы о тренировках в «Центре Жизни».
             </p>
@@ -71,7 +71,7 @@ const ContactSection = () => {
                     onChange={handleChange}
                     required
                     placeholder="Иван Иванов"
-                    className="w-full"
+                    className="w-full border-2"
                   />
                 </div>
                 
@@ -87,7 +87,7 @@ const ContactSection = () => {
                     onChange={handleChange}
                     required
                     placeholder="+7 (___) ___-__-__"
-                    className="w-full"
+                    className="w-full border-2"
                   />
                 </div>
                 
@@ -102,7 +102,7 @@ const ContactSection = () => {
                     onChange={handleChange}
                     placeholder="Укажите удобное время для занятий или ваши вопросы"
                     rows={4}
-                    className="w-full"
+                    className="w-full border-2"
                   />
                 </div>
                 
@@ -111,7 +111,7 @@ const ContactSection = () => {
                 </Button>
               </form>
             ) : (
-              <div className="bg-green-50 border border-green-200 rounded-lg p-6 text-center">
+              <div className="bg-green-50 border-2 border-green-200 rounded-lg p-8 text-center">
                 <div className="flex justify-center mb-4">
                   <div className="rounded-full bg-green-100 p-3">
                     <Check className="h-8 w-8 text-green-600" />
@@ -125,58 +125,70 @@ const ContactSection = () => {
             )}
           </div>
           
-          <div className="lg:pl-8">
-            <h3 className="text-2xl font-bold mb-6">Контактная информация</h3>
-            
-            <div className="space-y-6">
-              <div className="flex items-start">
-                <Phone className="text-life-orange h-6 w-6 mt-1 mr-4 flex-shrink-0" />
-                <div>
-                  <p className="font-bold mb-1">Телефон</p>
-                  <p>+7 (999) 123-45-67</p>
-                </div>
-              </div>
+          <div>
+            <div className="bg-white p-8 rounded-lg shadow-sm border border-gray-200 mb-8">
+              <h3 className="text-2xl font-bold mb-6 gradient-text">Контактная информация</h3>
               
-              <div className="flex items-start">
-                <Mail className="text-life-orange h-6 w-6 mt-1 mr-4 flex-shrink-0" />
-                <div>
-                  <p className="font-bold mb-1">Email</p>
-                  <p>info@центржизни.рф</p>
+              <div className="space-y-6">
+                <div className="feature-item">
+                  <div className="bg-orange-50 p-2 rounded-full">
+                    <Phone className="icon-feature h-6 w-6" />
+                  </div>
+                  <div>
+                    <p className="font-bold mb-1">Телефон</p>
+                    <p>+7 (999) 123-45-67</p>
+                  </div>
                 </div>
-              </div>
-              
-              <div className="flex items-start">
-                <MapPin className="text-life-orange h-6 w-6 mt-1 mr-4 flex-shrink-0" />
-                <div>
-                  <p className="font-bold mb-1">Адрес</p>
-                  <p>г. Москва, ул. Примерная, д. 123</p>
+                
+                <div className="feature-item">
+                  <div className="bg-orange-50 p-2 rounded-full">
+                    <Mail className="icon-feature h-6 w-6" />
+                  </div>
+                  <div>
+                    <p className="font-bold mb-1">Email</p>
+                    <p>info@центржизни.рф</p>
+                  </div>
                 </div>
-              </div>
-              
-              <div className="flex items-start">
-                <Clock className="text-life-orange h-6 w-6 mt-1 mr-4 flex-shrink-0" />
-                <div>
-                  <p className="font-bold mb-1">График работы</p>
-                  <p>Пн-Пт: 9:00 - 20:00</p>
-                  <p>Сб: 10:00 - 18:00</p>
-                  <p>Вс: выходной</p>
+                
+                <div className="feature-item">
+                  <div className="bg-orange-50 p-2 rounded-full">
+                    <MapPin className="icon-feature h-6 w-6" />
+                  </div>
+                  <div>
+                    <p className="font-bold mb-1">Адрес</p>
+                    <p>г. Москва, ул. Примерная, д. 123</p>
+                  </div>
+                </div>
+                
+                <div className="feature-item">
+                  <div className="bg-orange-50 p-2 rounded-full">
+                    <Clock className="icon-feature h-6 w-6" />
+                  </div>
+                  <div>
+                    <p className="font-bold mb-1">График работы</p>
+                    <p>Пн-Пт: 9:00 - 20:00</p>
+                    <p>Сб: 10:00 - 18:00</p>
+                    <p>Вс: выходной</p>
+                  </div>
                 </div>
               </div>
             </div>
             
-            <div className="mt-8 p-6 bg-white rounded-lg shadow-sm border border-gray-100">
+            <div className="bg-white p-8 rounded-lg shadow-sm border-2 border-orange-100">
               <h4 className="text-xl font-bold mb-4 gradient-text">Хотите открыть такой же зал?</h4>
-              <p className="mb-4">
+              <p className="mb-4 leading-relaxed">
                 Мы предлагаем возможность приобрести тренажер «Ось Жизни» для дома или открыть 
                 тренировочный зал в вашем городе!
               </p>
-              <p className="mb-6">
-                Никаких лицензий не требуется, наша методика доступна каждому, 
-                кто хочет помогать людям и развивать свой бизнес.
-              </p>
+              <div className="p-4 bg-gray-50 rounded-lg mb-6 border border-gray-200">
+                <p className="text-center font-medium">
+                  Никаких лицензий не требуется, наша методика доступна каждому, 
+                  кто хочет помогать людям и развивать свой бизнес.
+                </p>
+              </div>
               <Button 
                 variant="outline" 
-                className="w-full border-life-orange text-life-orange hover:bg-life-orange/10"
+                className="w-full border-2 border-life-orange text-life-orange hover:bg-life-orange/10 py-6"
                 onClick={() => window.location.href = "mailto:franchise@центржизни.рф"}
               >
                 Узнать о франшизе
