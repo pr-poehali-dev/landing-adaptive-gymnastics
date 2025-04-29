@@ -4,7 +4,7 @@ import {
   Facebook, 
   Instagram, 
   Youtube, 
-  Telegram 
+  MessageCircle 
 } from "lucide-react";
 
 const Footer = () => {
@@ -68,7 +68,7 @@ const Footer = () => {
                 className="text-gray-400 hover:text-life-orange transition-colors"
                 aria-label="Telegram"
               >
-                <Telegram size={20} />
+                <MessageCircle size={20} />
               </a>
             </div>
           </div>
